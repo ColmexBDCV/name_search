@@ -13,7 +13,7 @@ exports.findAll = function(req, res) {
 //GET - Return a register with specified ID
 exports.findById = function(req, res) {
 
-	Persona.find({ $text : { $search : req.params.id } }, { nombres:1, primerApellido:1, segundoApellido:1, score: { $meta : "textScore"}}).
+	Persona.find({ $text : { $search : req.params.id } }, { nombres:1, primerApellido:1, segundoApellido:1, idOrcid:1, idCvuConacyt:1,score: { $meta : "textScore"}}).
 	sort({score: { '$meta' : "textScore"}}).
 	exec(
 		function(err, persona) {
