@@ -14,7 +14,7 @@ exports.findAll = function(req, res) {
 exports.findById = function(req, res) {
 
 	Persona.find({ $text : { $search : req.params.id } }, { nombres:1, primerApellido:1, segundoApellido:1, idOrcid:1, idCvuConacyt:1,score: { $meta : "textScore"}}).
-	sort({score: { '$meta' : "textScore"}}).
+	sort({score: { '$meta' : "textScore"}}).limit(10).
 	exec(
 		function(err, persona) {
 	    if(err) return res.send(500, err.message);
