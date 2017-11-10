@@ -7,3 +7,8 @@ Se requiere tener instalado MongoDB y una copia de todos los resgistros de la ba
 db: conacyt
 
 collection: persona
+
+
+Adicionalmente se deben generar los indices de texto para la colección persona de la siguiente manera:
+
+  db.persona.createIndex({ nombres : "text", primerApellido : "text", segundoApellido: "text"})
